@@ -110,13 +110,19 @@ class Board {
             });
         }
 
-        return k_sets.sort(k => this.getKValue(k));
+        // return k_sets.sort(k => -1 * this.getKValue(k));
+        return k_sets.sort((a, b) => {
+            if (this.getKValue(a) > this.getKValue(b)) return -1;
+            if (this.getKValue(b) > this.getKValue(a)) return 1;
+            return 0;
+        })
     }
 
     getKValue(k_set) {
         let sum = 0;
         k_set.forEach(square => sum += this.getValue(square));
-        return sum / k_set.length;
+        return (sum / k_set.length).toFixed(2);
+        // return 5
     } 
 
     addGoal(square, goal) {

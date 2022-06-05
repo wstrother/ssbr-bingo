@@ -4,7 +4,9 @@ import Board from './components/Board.vue'
 
 <template>
   <h1>SSBR Bingo</h1>
-  <Board></Board>
+  <div class="main">
+    <Board></Board>
+  </div>
 </template>
 
 <style>
@@ -32,5 +34,11 @@ a {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 
+}
+
+.main {
+  background-color: red;
+  width: 100%;
+  display: flex;
 }
 </style>
