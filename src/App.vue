@@ -37,7 +37,6 @@ a {
 }
 
 .main {
-  background-color: red;
   width: 100%;
   display: flex;
 }

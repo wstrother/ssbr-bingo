@@ -50,12 +50,18 @@
                 </div>
             </div>
     </div> -->
-    <textarea>{{ goalJson }}</textarea>
+    <textarea class="output">{{ goalJson }}</textarea>
 
     <!-- <div>{{ currentK }}</div> -->
 </template>
 
 <style>
+    .output {
+        margin: 10px;
+        width: 500px;
+        height: 300px;
+    }
+
     .k-set-div {
         display: flex;
         flex-direction: column;
