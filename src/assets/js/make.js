@@ -17,10 +17,6 @@ class TemplateFiller {
         this.chosen.push(choices[choice]);
         console.log(`\tPushing ${choices[choice]} to ${this.name} chosen list`);
         if (this.choices.length == this.chosen.length) this.chosen = [];
-
-        if (choices[choice] === undefined) {
-            debugger;
-        }
         
         return choices[choice];
     }
@@ -130,7 +126,24 @@ class GoalGenerator {
         }
 
         console.log(this.goals);
+        if (this.checkDuplicates()) {
+            this.goals = {};
+            this.getGoals(kSets, board);
+        }
         return this.goals;
+    }
+
+    checkDuplicates() {
+        let keys = Object.keys(this.goals);
+        let checked = [];
+
+        keys.forEach(key => {
+            if (checked.includes(key)) {
+                return true;
+            } else {
+                checked.push(key);
+            }
+        });
     }
 }
 
