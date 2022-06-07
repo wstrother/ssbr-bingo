@@ -2,18 +2,26 @@ import goals from "./goals";
 
 
 class TemplateFiller {
-    constructor(choices) {
-        this.choices = choices;
+    constructor(name, choices) {
+        this.name = name;
+        this.choices = Array.from(choices);
         this.chosen = [];
     }
 
     getChoice() {
         let choices = this.choices.filter(choice => !this.chosen.includes(choice));
+        console.log(`\t${this.name} is selecting from remaining choices: ${choices}`);
+
         let choice = Math.floor(Math.random() * choices.length);
         
         this.chosen.push(choices[choice]);
+        console.log(`\tPushing ${choices[choice]} to ${this.name} chosen list`);
         if (this.choices.length == this.chosen.length) this.chosen = [];
 
+        if (choices[choice] === undefined) {
+            debugger;
+        }
+        
         return choices[choice];
     }
 }
@@ -23,23 +31,27 @@ class GoalGenerator {
     constructor() {
         // choice trackers
         this.fillers = [
-            new TemplateFiller(goals.CHARACTERS),
-            new TemplateFiller(goals.ITEMS['weapons']),
-            new TemplateFiller(goals.ITEMS['healing_items']),
-            new TemplateFiller(goals.BONUSES),
-            new TemplateFiller(goals.CLASSIC_LEVELS),
-            new TemplateFiller(goals.STAGE_KILLS),
-            new TemplateFiller(goals.POKEMON)
+            new TemplateFiller("CHARACTERS", goals.CHARACTERS),
+            new TemplateFiller("WEAPONS", goals.ITEMS['weapons']),
+            new TemplateFiller("HEALING ITEMS", goals.ITEMS['healing_items']),
+            new TemplateFiller("BONUSES", goals.BONUSES),
+            new TemplateFiller("LEVELS", goals.CLASSIC_LEVELS),
+            new TemplateFiller("STAGE KOS", goals.STAGE_KILLS),
+            new TemplateFiller("MEME MOVES", goals.MEME_MOVES),
+            new TemplateFiller("PKMN", goals.POKEMON)
         ];
 
         this.goals = {};
     }
 
     getFiller(choices) {
-        return this.fillers.filter(filler => filler.choices = choices)[0];
+        return this.fillers.filter(
+            filler => JSON.stringify(filler.choices) == JSON.stringify(choices)
+        )[0];
     }
 
-    fillTemplate([template, ...choices_list]) {
+    fillTemplate(template, choices_list) {
+        console.log(`Selected template: ${template}`);
         let slots = (template.match(/{}/g) || []).length;
         let selected = [];
         let c_i = 0;
@@ -49,6 +61,7 @@ class GoalGenerator {
             if (i < choices_list.length) c_i = i;
 
             filler = this.getFiller(choices_list[c_i]);
+            console.log(`\tFilling slot ${i} with ${filler.name}`);
             selected.push(filler.getChoice());
         }
 
@@ -73,7 +86,7 @@ class GoalGenerator {
         let goal_obj = goal_set[choice];
 
         if (Array.isArray(goal_obj)) {
-            return this.fillTemplate(goal_obj);
+            return this.fillTemplate(goal_obj[0], goal_obj.slice(1));
         } else {
             if (Object.keys(this.goals).includes(goal_obj)) {
                 while (Object.keys(this.goals).includes(goal_obj)) {

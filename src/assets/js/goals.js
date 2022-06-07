@@ -127,7 +127,7 @@ const GOALS = {
             "GET_BONUS": ["Get the {} Bonus", BONUSES],
         },
         "challenge": {
-            "MEME_KO": ["Defeat {} (in 1P Game) using only {}", CLASSIC_LEVELS, CHARACTERS]
+            "MEME_KO": ["Defeat {} (in 1P Game) using only {}", CLASSIC_LEVELS, MEME_MOVES]
         }
     },
     "unique": {

@@ -216,11 +216,8 @@ export default {
             }
         },
         getKSets() {
-            // this.kSets = this.board.getKSets();
             let kSets = this.board.getKSets();
-            console.log(kSets.sort(k => k.length));
             this.kSets = kSets;
-            // console.log(this.kSets);
         },
         getKColor(square, style) {
             let i = 0;
@@ -274,7 +271,7 @@ export default {
                 });
             });
 
-            console.log(JSON.stringify(goals));
+            // console.log(JSON.stringify(goals));
             this.goalJson = JSON.stringify(goals);
         }
     }, 
@@ -285,10 +282,10 @@ export default {
         kHighlighted() {
             return (this.kSets.length && this.hovered) ? this.kSets.filter(kSet => kSet.includes(this.hovered))[0] : [];
         }
-    },
-    mounted() {
-        console.log(this.goalsDict);
-        console.log(this.board);
     }
+    // mounted() {
+    //     console.log(this.goalsDict);
+    //     console.log(this.board);
+    // }
 };
 </script>
