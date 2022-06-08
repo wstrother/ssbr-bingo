@@ -24,6 +24,8 @@ const POLYGONS = CHARACTERS.map(c => `Polygon ${c}`);
 
 const ALL_CHARACTERS = [CHARACTERS, REMIX_CHARACTERS, SPECIAL_CHARACTERS, POLYGONS].flat();
 
+const NO_POLYGONS = [CHARACTERS, REMIX_CHARACTERS, SPECIAL_CHARACTERS].flat();
+
 const ITEMS = {
     "all": [
         "MaximTomato",
@@ -142,6 +144,8 @@ const REMIX_LEVELS = [
     "Giga Bowser"
 ];
 
+const ALL_LEVELS = [CLASSIC_LEVELS, REMIX_LEVELS].flat();
+
 
 // goal templates
 const GOALS = {
@@ -149,7 +153,7 @@ const GOALS = {
         "bonus_games": {
             "BTT_CHOICE": ["Beat Break the Targets w/ {}, {}, and {}", ALL_CHARACTERS], 
             "BTP_CHOICE": ["Beat Board the Platforms w/ {}, {}, and {}", ALL_CHARACTERS],
-            "BTT_B_MOVE": ["Beat Break the Targets using only B moves with {}", ALL_CHARACTERS],
+            "BTT_B_MOVE": ["Beat Break the Targets using only B moves with {}", NO_POLYGONS],
             "RTF_CHOICE": ["Beat Race to the Finish w/ {}, {}, and {}", ALL_CHARACTERS],
             "BONUS_BOTH": ["Beat Both Bonus Games w/ {}", ALL_CHARACTERS],
             "HOMERUN": ["Beat 2500 ft in Home Run Contest w/ {}", ALL_CHARACTERS]
