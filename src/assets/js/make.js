@@ -1,4 +1,7 @@
-import goals from "./goals";
+// import goals from "./goals";
+import goals_remix from "./goals_remix";
+
+const goals = goals_remix;
 
 
 class TemplateFiller {
@@ -27,7 +30,9 @@ class GoalGenerator {
     constructor() {
         // choice trackers
         this.fillers = [
-            new TemplateFiller("CHARACTERS", goals.CHARACTERS),
+            new TemplateFiller("CHARACTERS", goals.ALL_CHARACTERS),
+            new TemplateFiller("SPECIAL CHARS", goals.SPECIAL_CHARACTERS),
+            new TemplateFiller("REMIX LEVELS", goals.REMIX_LEVELS),
             new TemplateFiller("WEAPONS", goals.ITEMS['weapons']),
             new TemplateFiller("HEALING ITEMS", goals.ITEMS['healing_items']),
             new TemplateFiller("BONUSES", goals.BONUSES),
