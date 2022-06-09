@@ -151,12 +151,12 @@ const ALL_LEVELS = [CLASSIC_LEVELS, REMIX_LEVELS].flat();
 const GOALS = {
     "templates": {
         "bonus_games": {
-            "BTT_CHOICE": ["Beat Break the Targets w/ {}, {}, and {}", ALL_CHARACTERS], 
-            "BTP_CHOICE": ["Beat Board the Platforms w/ {}, {}, and {}", ALL_CHARACTERS],
+            "BTT_CHOICE": ["Beat Break the Targets w/ {}, {}, and {}", NO_POLYGONS], 
+            "BTP_CHOICE": ["Beat Board the Platforms w/ {}, {}, and {}", NO_POLYGONS],
             "BTT_B_MOVE": ["Beat Break the Targets using only B moves with {}", NO_POLYGONS],
-            "RTF_CHOICE": ["Beat Race to the Finish w/ {}, {}, and {}", ALL_CHARACTERS],
-            "BONUS_BOTH": ["Beat Both Bonus Games w/ {}", ALL_CHARACTERS],
-            "HOMERUN": ["Beat 2500 ft in Home Run Contest w/ {}", ALL_CHARACTERS]
+            "RTF_CHOICE": ["Beat Race to the Finish w/ {}, {}, and {}", NO_POLYGONS],
+            "BONUS_BOTH": ["Beat All 3 Bonus Games w/ {}", NO_POLYGONS],
+            "HOMERUN": ["Beat 2500 ft in Home Run Contest w/ {}", NO_POLYGONS]
         },
         "speedrun": {
             "BEAT_VE_CHOICE": ["Beat Very Easy (5 Stock) w/ {}, {}, and {}", ALL_CHARACTERS],
@@ -209,6 +209,7 @@ const GOALS = {
         },
         // "rng": {},       No unique RNG goals yet
         "challenge": {
+            // "ALT_KOs": ""
             "ZEBES_SPIKE": "Spike an opponent through the acid on Planet Zebes",
             "SHIELD_BREAK": "Break an opponent's shield",
             "1V3": "Win a 1 v 3 against Level 9 CPUs",
@@ -270,12 +271,14 @@ assignGoals(
 export default {
     CHARACTERS,
     ALL_CHARACTERS,
+    NO_POLYGONS,
     SPECIAL_CHARACTERS,
     ITEMS,
     POKEMON,
     STAGE_KILLS,
     CLASSIC_LEVELS,
     REMIX_LEVELS,
+    ALL_LEVELS,
     MEME_MOVES,
     BONUSES,
 

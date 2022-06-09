@@ -32,11 +32,13 @@ class GoalGenerator {
         this.fillers = [
             new TemplateFiller("CHARACTERS", goals.ALL_CHARACTERS),
             new TemplateFiller("SPECIAL CHARS", goals.SPECIAL_CHARACTERS),
+            new TemplateFiller("NO POLY", goals.NO_POLYGONS),
             new TemplateFiller("REMIX LEVELS", goals.REMIX_LEVELS),
             new TemplateFiller("WEAPONS", goals.ITEMS['weapons']),
             new TemplateFiller("HEALING ITEMS", goals.ITEMS['healing_items']),
             new TemplateFiller("BONUSES", goals.BONUSES),
             new TemplateFiller("LEVELS", goals.CLASSIC_LEVELS),
+            new TemplateFiller("ALL LEVELS", goals.ALL_LEVELS),
             new TemplateFiller("STAGE KOS", goals.STAGE_KILLS),
             new TemplateFiller("MEME MOVES", goals.MEME_MOVES),
             new TemplateFiller("PKMN", goals.POKEMON)
