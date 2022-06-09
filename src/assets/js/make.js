@@ -87,18 +87,17 @@ class GoalGenerator {
         
         let choice = choiceKeys[Math.floor(Math.random() * choiceKeys.length)];
         let goal_obj = goal_set[choice];
+        let goal_text;
 
         if (Array.isArray(goal_obj)) {
-            return this.fillTemplate(goal_obj[0], goal_obj.slice(1));
+            goal_text = this.fillTemplate(goal_obj[0], goal_obj.slice(1));
         } else {
-            if (Object.keys(this.goals).includes(goal_obj)) {
-                while (Object.keys(this.goals).includes(goal_obj)) {
-                    goal_obj = choiceKeys[Math.floor(Math.random() * choiceKeys.length)];
-                }
-            }
-            return goal_obj;
+            goal_text = goal_obj;
         }
 
+        if (this.isDuplicate(goal_text)) return this.getFromCategory(goal_set, value);
+
+        return goal_text;
     }
 
     getGoals(kSets, board) {
@@ -131,25 +130,13 @@ class GoalGenerator {
             });
             current++;
         }
-
-        console.log(this.goals);
-        if (this.checkDuplicates()) {
-            this.goals = {};
-            this.getGoals(kSets, board);
-        }
+        
         return this.goals;
     }
 
-    checkDuplicates() {
-        let keys = Object.keys(this.goals);
-        let checked = [];
-
-        keys.forEach(key => {
-            if (checked.includes(key)) {
-                return true;
-            } else {
-                checked.push(key);
-            }
+    isDuplicate(text) {
+        Object.values(this.goals).forEach(g => {
+            if (text == g) return true;
         });
     }
 }
