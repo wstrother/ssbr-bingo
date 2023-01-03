@@ -7,7 +7,7 @@ const CHARACTERS = [
 
 const REMIX_CHARACTERS = [
     "Doctor Mario", "Young Link", "Dark Samus", "Sonic", "Ganondorf",
-    "Falco", "Marth", "Mewtwo", "Conker", "Wolf", "Bowser", "Lucas", "Wario"
+    "Falco", "Marth", "Mewtwo", "Conker", "Wolf", "Bowser", "Lucas", "Wario", "Sheik"
 ];
 
 // const ALT_CHARACTERS = [
@@ -46,15 +46,19 @@ const ITEMS = {
         "Pokeball",
         "Super Mushroom", 
         "Poison Mushroom", 
-        "Cloaking Device"
+        "Cloaking Device",
+        "Reflector Device",
+        "Blue Shell",
+        "Deku Nut",
+        "Mushroom"
     ],
     "weapons": [
         "BeamSword", "HomeRunBat", "Fan", "StarRod", "RayGun", "FireFlower",
         "Hammer", "MotionSensorBomb", "Bob-omb", "Bumper", "GreenShell",
-        "RedShell", "Pokeball"
+        "RedShell", "Pokeball", "Blue Shell"
     ],
     "healing_items": [
-        "MaximTomato", "Heart", "Star", "Super Mushroom", "Poison Mushroom", "Cloaking Device"
+        "MaximTomato", "Heart", "Star", "Super Mushroom", "Poison Mushroom", "Cloaking Device", "Reflector Device", "Mushroom"
     ]
 };
 
@@ -117,7 +121,9 @@ const MEME_MOVES = [
     "Luigi Up B",
     "Falcon Neutral B",
     "Pika Down B",
-    "Ness Up B"
+    "Ness Up B",
+    "Ganondorf Neutral B",
+    "Ganondorf Up Tilt"
 ];
 
 const CLASSIC_LEVELS = [
@@ -164,7 +170,7 @@ const GOALS = {
             "BEAT_VH_CHOICE": ["Beat Very Hard (1 Stock) w/ {}", ALL_CHARACTERS],
             "ALLSTAR_VE_CHOICE": ["Beat All Star Mode - Very Easy (5 Stock) w/ {}, {} and {}", ALL_CHARACTERS],
             "ALLSTAR_N_CHOICE": ["Beat All Star Mode - Normal (3 Stock) w/ {} and {}", ALL_CHARACTERS],
-            "ALLSTAR_VH_CHOICE": ["Beat All Star Mode - Very Hard w/ {}", ALL_CHARACTERS],
+            "ALLSTAR_VH_CHOICE": ["Beat All Star Mode - Very Hard (1 Stock) w/ {}", ALL_CHARACTERS],
             "BEAT_VER_CHOICE": ["Beat Remix 1P - Very Easy (5 Stock) w/ {}, {}, and {}", ALL_CHARACTERS],
             "BEAT_NR_CHOICE": ["Beat Remix 1P - Normal (3 Stock) w/ {} and {}", ALL_CHARACTERS],
             "BEAT_VHR_CHOICE": ["Beat Remix 1P - Very Hard (1 Stock) w/ {}", ALL_CHARACTERS],
@@ -210,7 +216,7 @@ const GOALS = {
         // "rng": {},       No unique RNG goals yet
         "challenge": {
             // "ALT_KOs": ""
-            "ZEBES_SPIKE": "Spike an opponent through the acid on Planet Zebes",
+            "ZEBES_SPIKE": "Spike an opponent through the acid on Planet Zebes/Norfair",
             "SHIELD_BREAK": "Break an opponent's shield",
             "1V3": "Win a 1 v 3 against Level 9 CPUs",
             "STAGE_PKMN_KO": "KO a Stage Pokemon on Saffron City",
@@ -220,9 +226,9 @@ const GOALS = {
             "4_YOSHIS": "Get 4 Yoshis of the same color on screen",
             "CPU_TAUNT": "See a CPU Taunt",
             "3_CHEERS": "Hear 3 different crowd chants for the same character",
-            "HAMMER_GRAB": "Grab someone using the hammer",
-            "MULTI_10": "Get 10 KOs in Multi Man Mode",
-            "MULTI_CRUEL": "Get 5 KOs in Cruel Multi Man Mode"
+            "HAMMER_GRAB": "KO someone using the hammer",
+            "MULTI_10": "Get 10 KOs in Multi Man Mode with 3 characters",
+            "MULTI_CRUEL": "Get 5 KOs in Cruel Multi Man Mode with 3 characters"
         }
     },
     "impossible": [
