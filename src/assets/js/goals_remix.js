@@ -67,13 +67,14 @@ const POKEMON = [
     "Beedrill",
     "Charizard",
     "Snorlax",
-    "Chancey",
+    "Chansey",
     "Hitmonlee",
     "Goldeen",
     "Blastoise",
     "Koffing",
     "Meowth",
-    "Staryu"
+    "Starmie",
+    "Onix"
 ];
 
 const BONUSES = [
